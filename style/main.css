@@ -1,0 +1,166 @@
+@import url("reset.css");
+
+:root{
+    --very-dark-desaturated-blue:hsl(238, 29%, 16%);
+    --soft-red:hsl(14, 88%, 65%);
+    --soft-violet:hsl(273, 75%, 66%);
+    --soft-blue:hsl(240, 73%, 65%);
+    --very-dark-grayish-blue:hsl(237, 12%, 33%);
+    --dark-grayish-blue:hsl(240, 6%, 50%);
+    --light-grayish-blue:hsl(240, 5%, 91%);
+}
+
+*{
+    font-family: "Kumbh Sans";
+}
+
+p{
+    margin: 0;
+}
+
+h1{
+    color:var(--very-dark-desaturated-blue);
+}
+
+body{
+    background: linear-gradient(180deg, #af67e9, #6565e7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    padding:0rem 1.5rem 2rem 1.5rem;
+    width:95%;
+    max-width: 50rem;
+
+    background-color: var(--light-grayish-blue);
+    border-radius: 20px;
+    box-shadow: 0px 20px 40px 0px rgba(0,0,0,0.5);
+}
+
+/* Styling the image */
+
+.picture-container{
+    height: 8rem;
+    width: 100%;
+    position: relative;
+
+    background-image: url("../images/bg-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 0.5rem;
+    background-size: 250px;
+}
+
+picture{
+    width: 250px;
+    max-width: 100%;
+
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+    animation-name: move;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move {
+    0% {top:-6.6rem;}
+    50% {top:-6rem;}
+    100% {top:-6.6rem;}
+}
+
+@media screen and (min-width:50rem){
+    main{
+        padding:1.5rem 5rem 0 0;
+        display: flex;
+    }
+
+    .picture-container{
+        height: 24rem;
+        background-image: url("../images/bg-pattern-desktop.svg");
+        background-position: -23rem -10rem;
+        background-size: 42rem;
+    }
+
+    picture{
+        width: 100%;
+        left:8rem;
+    }
+    
+    picture::before{
+        content: "";
+        background-image:  url("../images/illustration-box-desktop.svg");
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        left: -3.2rem;
+        top:5.3rem;
+    }   
+
+    @keyframes move {
+        0% {top:3rem;}
+        50% {top:5rem;}
+        100% {top:3rem;}
+    }
+
+}
+
+/* Styling the FAQ's container now */
+
+.faq-container h1{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+hr{
+    border-color: var(--light-grayish-blue);
+    margin: 0.8rem 0;
+}
+
+.faq-container{
+    width: 100%;
+}
+
+.question-container{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question{
+    color:var(--very-dark-grayish-blue);
+    font-size: 14px;
+}
+
+.question:hover{
+    color:var(--very-dark-desaturated-blue);
+    font-weight: 700;
+}
+
+.answer{
+    margin-top: 0.3rem;
+    margin-right: 0.5rem;
+
+    color:var(--dark-grayish-blue);
+    font-size: 13px;
+}
+
+.hidden{
+    display: none;
+}
+
+.active{
+    color:var(--very-dark-desaturated-blue);
+    font-weight: 700;
+}
+
+ @media screen and (min-width:50rem) {
+    .faq-container h1{
+        text-align: left;
+    }
+
+    .faq-container{
+    }
+}
