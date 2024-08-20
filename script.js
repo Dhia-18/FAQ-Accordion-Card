@@ -10,11 +10,25 @@ function changeIcon(icon){
     }
 }
 
+function resetFAQ(activeQuestionIndex){
+    for(let i=0;i<questions.length;i++){
+        if(i!==activeQuestionIndex){
+            const arrowIcon = questions[i].querySelector("img");
+            const questionText = questions[i].querySelector(".question");
+
+            arrowIcon.src="images/icon-arrow-down.svg";
+            questionText.classList.remove("active");
+            answers[i].classList.add("hidden");
+        }
+    }
+}
+
 for (let i=0 ; i<questions.length ; i++){
     questions[i].addEventListener("click",()=>{
         const arrowIcon = questions[i].querySelector("img");
         const questionText = questions[i].querySelector(".question");
         
+        resetFAQ(i);
         changeIcon(arrowIcon);
         questionText.classList.toggle("active");
         answers[i].classList.toggle("hidden");
